@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh Nhật Chị Tú Anh 30 Tuổi 🦛✨</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts hỗ trợ tiếng Việt mềm mại: Quicksand, Nunito & Mali -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,500;0,600;0,700;1,600&family=Nunito:wght@400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- SoundCloud Widget API -->
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+
+    <style>
+        :root {
+            --pastel-pink: #ffe5ec;
+            --pastel-lavender: #f3e8ff;
+            --pastel-cream: #fffdf9;
+            --peach-cheek: #ffb3c6;
+            --accent-rose: #ff7597;
+        }
+
+        body {
+            font-family: 'Quicksand', 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #ffe5ec 0%, #f3e8ff 52%, #fffdf9 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #4a3b4c;
+        }
+
+        .font-mali {
+            font-family: 'Mali', cursive;
+        }
+
+        /* Hiệu ứng nhún nhảy Kawaii cho bé Hà Mã */
+        @keyframes kawaiiBounce {
+            0%, 100% {
+                transform: translateY(0px) scale(1, 1);
+            }
+            40% {
+                transform: translateY(-10px) scale(0.98, 1.03);
+            }
+            75% {
+                transform: translateY(2px) scale(1.03, 0.97);
+            }
+        }
+
+        /* Hiệu ứng chớp mắt dễ thương */
+        @keyframes cuteBlink {
+            0%, 46%, 50%, 96%, 100% {
+                transform: scaleY(1);
+            }
+            48%, 98% {
+                transform: scaleY(0.08);
+            }
+        }
+
+        /* Hiệu ứng tim bay quanh bé Hà Mã */
+        @keyframes miniHeartFloat {
+            0%, 100% {
+                transform: translateY(0px) scale(0.95) rotate(-6deg);
+                opacity: 0.85;
+            }
+            50% {
+                transform: translateY(-10px) scale(1.12) rotate(6deg);
+                opacity: 1;
+            }
+        }
+
+        /* Hiệu ứng bé hà mã ngó đầu nhẹ nhàng */
+        @keyframes peekWiggle {
+            0%, 100% {
+                transform: translateY(0px) rotate(-2deg);
+            }
+            50% {
+                transform: translateY(-5px) rotate(2deg);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 8px 25px rgba(255, 117, 151, 0.45);
+            }
+            50% {
+                box-shadow: 0 8px 36px rgba(192, 132, 252, 0.75);
+            }
+        }
+
+        @keyframes flameFlicker {
+            0%, 100% { transform: scale(1) rotate(-2deg); opacity: 1; }
+            50% { transform: scale(1.15) rotate(3deg); opacity: 0.85; }
+        }
+
+        @keyframes riseUp {
+            0% {
+                transform: translateY(100vh) scale(0.6);
+                opacity: 0;
+            }
+            15% { opacity: 0.8; }
+            85% { opacity: 0.8; }
+            100% {
+                transform: translateY(-15vh) scale(1.1);
+                opacity: 0;
+            }
+        }
+
+        .kawaii-hippo-anim {
+            animation: kawaiiBounce 3.2s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+
+        .hippo-eye {
+            transform-origin: center;
+            transform-box: fill-box;
+            animation: cuteBlink 4.2s infinite;
+        }
+
+        .hippo-heart-1 {
+            animation: miniHeartFloat 2.6s ease-in-out infinite;
+        }
+
+        .hippo-heart-2 {
+            animation: miniHeartFloat 3.1s ease-in-out 0.8s infinite;
+        }
+
+        .peeking-hippo {
+            animation: peekWiggle 3s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+
+        .btn-glow {
+            animation: pulseGlow 2.4s infinite;
+        }
+
+        .candle-flame {
+            transform-origin: bottom center;
+            animation: flameFlicker 0.8s ease-in-out infinite;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .candle-flame.blown-out {
+            opacity: 0;
+            transform: scale(0);
+            animation: none;
+        }
+
+        .floating-particle {
+            position: fixed;
+            bottom: -50px;
+            pointer-events: none;
+            z-index: 1;
+            animation: riseUp linear forwards;
+        }
+
+        .screen-transition {
+            transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1), transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Khung giấy thư màu kem ấm áp */
+        .letter-paper {
+            background-color: #fffdf9;
+            background-image: radial-gradient(#ffc2d1 1.1px, transparent 1.1px);
+            background-size: 24px 24px;
+            box-shadow: 0 22px 55px rgba(214, 143, 179, 0.25), 0 0 0 8px rgba(255, 255, 255, 0.78);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffe5ec;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d8b4fe;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="relative flex flex-col items-center justify-center p-4 sm:p-6 selection:bg-pink-200">
+
+    <!-- Container hạt bay lơ lửng nền -->
+    <div id="particles-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+
+    <!-- Preload SoundCloud Widget kích thước chuẩn 300x166 với opacity 0.01 để trình duyệt không chặn autoplay -->
+    <div id="sc-preload-container" class="fixed bottom-2 right-2 z-0 pointer-events-none overflow-hidden rounded-xl transition-all duration-300" style="width: 300px; height: 166px; opacity: 0.01;">
+        <iframe id="sc-widget"
+            width="300"
+            height="166"
+            scrolling="no"
+            frameborder="no"
+            allow="autoplay; encrypted-media"
+            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/happy-birthday-official/happy-birthday-to-you-piano&color=%23ff7597&auto_play=true&buying=false&sharing=false&download=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false">
+        </iframe>
+    </div>
+
+    <!-- ==================== MÀN HÌNH 1: BÉ HÀ MÃ KAWAII MỞ ĐẦU ==================== -->
+    <div id="intro-screen" class="screen-transition relative z-10 w-full max-w-md mx-auto text-center my-auto py-4">
+        <div class="bg-white/85 backdrop-blur-md rounded-[2rem] p-6 sm:p-8 shadow-xl border-4 border-pink-100">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-pink-100/90 text-pink-600 font-bold text-xs sm:text-sm mb-3 tracking-wide">
+                ✨ Special Gift For Chị Tú Anh ✨
+            </span>
+
+            <h1 class="font-mali text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 mb-1.5">
+                Happy 30th Birthday!
+            </h1>
+            <p class="text-sm sm:text-base text-purple-700/80 font-medium mb-4">
+                Bé Hà Mã mũm mĩm mang bánh & thư từ <span class="font-bold text-pink-500">Chinchu</span> tới nè!
+            </p>
+
+            <!-- SVG CON HÀ MÃ CHIBI KAWAII SIÊU TRÒN TRỊA ÔM CUPCAKE -->
+            <div class="relative w-72 h-72 mx-auto mb-5 cursor-pointer select-none" onclick="openBirthdayCard()">
+                <svg viewBox="0 0 320 320" class="w-full h-full drop-shadow-md overflow-visible" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <!-- Gradient thân hà mã tím lavender sữa mềm mại -->
+                        <radialGradient id="hippoBodyGrad" cx="45%" cy="35%" r="65%">
+                            <stop offset="0%" stop-color="#f3e8ff"/>
+                            <stop offset="65%" stop-color="#dfd0ff"/>
+                            <stop offset="100%" stop-color="#cbb4fc"/>
+                        </radialGradient>
+                        <!-- Gradient mõm tròn hồng phấn -->
+                        <radialGradient id="hippoSnoutGrad" cx="50%" cy="35%" r="65%">
+                            <stop offset="0%" stop-color="#fff0f5"/>
+                            <stop offset="60%" stop-color="#ffd6e4"/>
+                            <stop offset="100%" stop-color="#ffb3c6"/>
+                        </radialGradient>
+                        <!-- Gradient mũ sinh nhật vàng pastel -->
+                        <linearGradient id="partyHatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#fef08a"/>
+                            <stop offset="100%" stop-color="#fde047"/>
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Vòng nền pastel dịu dàng -->
+                    <circle cx="160" cy="175" r="118" fill="#ffe5ec" opacity="0.65"/>
+                    <circle cx="160" cy="175" r="95" fill="#f3e8ff" opacity="0.75"/>
+
+                    <!-- Trái tim bay lơ lửng xung quanh bé Hà Mã -->
+                    <g class="hippo-heart-1">
+                        <path d="M 56 105 C 56 105 42 95 42 86 C 42 81 46 77 51 77 C 54 77 55 79 56 81 C 57 79 58 77 61 77 C 66 77 70 81 70 86 C 70 95 56 105 56 105 Z" fill="#ff8fab"/>
+                        <circle cx="42" cy="128" r="4" fill="#fde047"/>
+                    </g>
+                    <g class="hippo-heart-2">
+                        <path d="M 264 98 C 264 98 252 89 252 81 C 252 77 255 74 259 74 C 262 74 263 75 264 77 C 265 75 266 74 269 74 C 273 74 276 77 276 81 C 276 89 264 98 264 98 Z" fill="#c084fc"/>
+                        <circle cx="276" cy="124" r="4.5" fill="#ffb3c6"/>
+                    </g>
+
+                    <!-- Bóng đổ dưới chân -->
+                    <ellipse cx="160" cy="286" rx="76" ry="12" fill="#d8b4fe" opacity="0.45"/>
+
+                    <!-- Nhóm nhân vật Hà Mã Chibi nhún nhảy -->
+                    <g class="kawaii-hippo-anim">
+                        
+                        <!-- Đuôi nhỏ xíu lắc lư phía sau -->
+                        <path d="M 222 238 Q 242 230 236 246 Q 232 252 220 248" fill="#cbb4fc" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round"/>
+
+                        <!-- Chân mũm mĩm ngồi bệt dễ thương -->
+                        <ellipse cx="114" cy="268" rx="26" ry="19" fill="url(#hippoBodyGrad)" stroke="#8b5cf6" stroke-width="3"/>
+                        <ellipse cx="114" cy="272" rx="15" ry="10" fill="#ffd6e4"/>
+                        <ellipse cx="206" cy="268" rx="26" ry="19" fill="url(#hippoBodyGrad)" stroke="#8b5cf6" stroke-width="3"/>
+                        <ellipse cx="206" cy="272" rx="15" ry="10" fill="#ffd6e4"/>
+
+                        <!-- Thân hình tròn xoe mũm mĩm -->
+                        <ellipse cx="160" cy="222" rx="72" ry="62" fill="url(#hippoBodyGrad)" stroke="#8b5cf6" stroke-width="3.2"/>
+                        <!-- Bụng tròn màu kem hồng -->
+                        <ellipse cx="160" cy="230" rx="46" ry="40" fill="#fff0f5" opacity="0.85"/>
+
+                        <!-- Tai nhỏ xíu vểnh lên -->
+                        <g transform="rotate(-24 102 92)">
+                            <ellipse cx="102" cy="92" rx="15" ry="20" fill="url(#hippoBodyGrad)" stroke="#8b5cf6" stroke-width="3.2"/>
+                            <ellipse cx="102" cy="94" rx="8" ry="12" fill="#ffb3c6"/>
+                        </g>
+                        <g transform="rotate(24 218 92)">
+                            <ellipse cx="218" cy="92" rx="15" ry="20" fill="url(#hippoBodyGrad)" stroke="#8b5cf6" stroke-width="3.2"/>
+                            <ellipse cx="218" cy="94" rx="8" ry="12" fill="#ffb3c6"/>
+                        </g>
+
+                        <!-- Mũ sinh nhật vàng pastel có quả bông pom-pom và số 30 -->
+                        <g transform="rotate(-5 160 68)">
+                            <!-- Viền bèo dưới mũ -->
+                            <path d="M 126 78 Q 160 86 194 78 L 160 16 Z" fill="url(#partyHatGrad)" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round"/>
+                            <!-- Chấm bi trang trí mũ -->
+                            <circle cx="148" cy="48" r="3.5" fill="#ff8fab"/>
+                            <circle cx="174" cy="54" r="3.5" fill="#c084fc"/>
+                            <circle cx="140" cy="68" r="3" fill="#60a5fa"/>
+                            <circle cx="180" cy="70" r="3" fill="#ff8fab"/>
+                            <!-- Số 30 đáng yêu trên mũ -->
+                            <text x="160" y="71" font-family="Mali, cursive" font-weight="700" font-size="19" fill="#ec4899" stroke="#ffffff" stroke-width="0.6" text-anchor="middle">30</text>
+                            <!-- Quả bông pom-pom hồng phấn trên đỉnh -->
+                            <circle cx="160" cy="14" r="11" fill="#ffb3c6" stroke="#f43f5e" stroke-width="2.5"/>
+                            <circle cx="157" cy="11" r="3.5" fill="#ffffff" opacity="0.8"/>
+                        </g>
+
+                        <!-- Đầu tròn xoe siêu kawaii -->
+                        <ellipse cx="160" cy="134" rx="76" ry="60" fill="url(#hippoBodyGrad)" stroke="#8b5cf6" stroke-width="3.2"/>
+
+                        <!-- Đôi mắt Anime/Chibi to tròn đen láy có chấm sáng lấp lánh -->
+                        <g class="hippo-eye">
+                            <!-- Mắt trái -->
+                            <ellipse cx="122" cy="122" rx="12" ry="13.5" fill="#2e1065"/>
+                            <!-- Đốm sáng lớn lấp lánh -->
+                            <circle cx="118" cy="117" r="4.8" fill="#ffffff"/>
+                            <!-- Đốm sáng nhỏ -->
+                            <circle cx="126" cy="126" r="2.2" fill="#ffffff"/>
+                            <!-- Ánh tím dưới mắt anime -->
+                            <ellipse cx="122" cy="130" rx="6" ry="2.5" fill="#c084fc" opacity="0.65"/>
+                        </g>
+
+                        <g class="hippo-eye">
+                            <!-- Mắt phải -->
+                            <ellipse cx="198" cy="122" rx="12" ry="13.5" fill="#2e1065"/>
+                            <!-- Đốm sáng lớn lấp lánh -->
+                            <circle cx="194" cy="117" r="4.8" fill="#ffffff"/>
+                            <!-- Đốm sáng nhỏ -->
+                            <circle cx="202" cy="126" r="2.2" fill="#ffffff"/>
+                            <!-- Ánh tím dưới mắt anime -->
+                            <ellipse cx="198" cy="130" rx="6" ry="2.5" fill="#c084fc" opacity="0.65"/>
+                        </g>
+
+                        <!-- Má phúng phính màu hồng đào (#ffb3c6) kèm vệt má hồng dễ thương -->
+                        <ellipse cx="96" cy="142" rx="16" ry="10" fill="#ffb3c6" opacity="0.9"/>
+                        <line x1="90" y1="145" x2="94" y2="139" stroke="#ff7597" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="97" y1="145" x2="101" y2="139" stroke="#ff7597" stroke-width="2" stroke-linecap="round"/>
+
+                        <ellipse cx="224" cy="142" rx="16" ry="10" fill="#ffb3c6" opacity="0.9"/>
+                        <line x1="219" y1="145" x2="223" y2="139" stroke="#ff7597" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="226" y1="145" x2="230" y2="139" stroke="#ff7597" stroke-width="2" stroke-linecap="round"/>
+
+                        <!-- Mõm hà mã tròn mềm mại -->
+                        <ellipse cx="160" cy="158" rx="64" ry="37" fill="url(#hippoSnoutGrad)" stroke="#8b5cf6" stroke-width="3"/>
+
+                        <!-- Hai lỗ mũi nhỏ xinh hình trái tim -->
+                        <path d="M 136 151 C 136 151 129 146 129 142 C 129 139.5 131 138 133 138 C 134.5 138 135.5 139 136 140 C 136.5 139 137.5 138 139 138 C 141 138 143 139.5 143 142 C 143 146 136 151 136 151 Z" fill="#9333ea"/>
+                        <path d="M 184 151 C 184 151 177 146 177 142 C 177 139.5 179 138 181 138 C 182.5 138 183.5 139 184 140 C 184.5 139 185.5 138 187 138 C 189 138 191 139.5 191 142 C 191 146 184 151 184 151 Z" fill="#9333ea"/>
+
+                        <!-- Miệng cười hình mèo (:3) siêu dễ thương -->
+                        <path d="M 142 167 Q 151 177 160 168 Q 169 177 178 167" fill="none" stroke="#7e22ce" stroke-width="3.2" stroke-linecap="round"/>
+
+                        <!-- CHIẾC BÁNH CUPCAKE KEM DÂU BÉ HÀ MÃ ĐANG ÔM -->
+                        <g transform="translate(132, 198)">
+                            <!-- Đế giấy cupcake màu hồng kẻ sọc -->
+                            <polygon points="8,32 48,32 42,58 14,58" fill="#ff8fab" stroke="#e11d48" stroke-width="2.5" stroke-linejoin="round"/>
+                            <line x1="20" y1="32" x2="22" y2="58" stroke="#ffe5ec" stroke-width="2"/>
+                            <line x1="28" y1="32" x2="28" y2="58" stroke="#ffe5ec" stroke-width="2"/>
+                            <line x1="36" y1="32" x2="34" y2="58" stroke="#ffe5ec" stroke-width="2"/>
+
+                            <!-- Lớp kem bông mềm mại -->
+                            <path d="M 4 32 C 0 22 12 16 18 18 C 16 10 26 5 34 9 C 42 5 52 12 46 20 C 54 20 56 30 50 32 Z" fill="#fffdf9" stroke="#f43f5e" stroke-width="2.5" stroke-linejoin="round"/>
+                            <!-- Sốt dâu hồng chảy trên kem -->
+                            <path d="M 10 21 Q 18 26 26 20 Q 34 26 44 21 C 42 14 34 10 28 11 C 22 10 13 14 10 21 Z" fill="#ffb3c6"/>
+                            <!-- Quả dâu tây đỏ mọng trên đỉnh -->
+                            <path d="M 28 13 C 22 13 20 5 28 1 C 36 5 34 13 28 13 Z" fill="#fb7185" stroke="#e11d48" stroke-width="2"/>
+                            <path d="M 24 2 L 28 5 L 32 2" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round"/>
+                        </g>
+
+                        <!-- Hai tay ngắn mũm mĩm ôm lấy chiếc bánh cupcake -->
+                        <ellipse cx="122" cy="228" rx="22" ry="15" transform="rotate(22 122 228)" fill="url(#hippoBodyGrad)" stroke="#8b5cf6" stroke-width="3.2"/>
+                        <ellipse cx="198" cy="228" rx="22" ry="15" transform="rotate(-22 198 228)" fill="url(#hippoBodyGrad)" stroke="#8b5cf6" stroke-width="3.2"/>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Nút bấm mở thiệp -->
+            <button id="open-card-btn" onclick="openBirthdayCard()" class="btn-glow w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-pink-400 via-rose-400 to-purple-400 hover:from-pink-500 hover:to-purple-500 text-white font-bold text-lg shadow-lg transform transition active:scale-95 flex items-center justify-center gap-2 mx-auto cursor-pointer">
+                <span>Mở thiệp của Chinchu 🦛✨</span>
+            </button>
+            <p class="text-xs text-purple-500/80 mt-3 font-medium">
+                (Bấm vào bé Hà Mã hoặc nút trên để mở quà & nghe nhạc nhé 🎵)
+            </p>
+        </div>
+    </div>
+
+    <!-- ==================== MÀN HÌNH 2: THIỆP CHÚC MỪNG CHÍNH ==================== -->
+    <div id="main-card-screen" class="hidden opacity-0 translate-y-6 screen-transition relative z-10 w-full max-w-2xl mx-auto my-4 sm:my-8">
+        
+        <!-- Thanh điều khiển nhạc góc trên -->
+        <div class="mb-4 bg-white/90 backdrop-blur-md rounded-2xl p-3 shadow-md border-2 border-pink-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+                <div id="music-disc" class="w-9 h-9 rounded-full bg-gradient-to-tr from-pink-400 to-purple-400 flex items-center justify-center text-white shadow-inner animate-spin" style="animation-duration: 6s;">
+                    🎵
+                </div>
+                <div class="text-left">
+                    <p id="music-source-title" class="text-xs font-bold text-pink-600">Happy Birthday Piano 🎹</p>
+                    <p id="music-status" class="text-[11px] text-purple-500">Đang phát giai điệu chúc mừng...</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button id="toggle-music-btn" onclick="toggleMusic()" class="px-4 py-1.5 rounded-full bg-pink-100 hover:bg-pink-200 text-pink-700 font-bold text-xs transition flex items-center gap-1.5 cursor-pointer">
+                    <span id="music-btn-icon">⏸️</span>
+                    <span id="music-btn-text">Tạm dừng nhạc</span>
+                </button>
+                <button onclick="toggleSoundCloudDrawer()" class="px-3 py-1.5 rounded-full bg-purple-100 hover:bg-purple-200 text-purple-700 font-bold text-xs transition cursor-pointer" title="Hiện/ẩn trình phát SoundCloud">
+                    ☁️ Player
+                </button>
+            </div>
+        </div>
+
+        <!-- Vùng chứa trình phát SoundCloud khi người dùng bấm mở rộng -->
+        <div id="sc-drawer-slot" class="mb-0 overflow-hidden rounded-2xl transition-all duration-300" style="max-height: 0px;"></div>
+
+        <!-- Tấm Thiệp Chính -->
+        <div class="letter-paper rounded-[2rem] p-6 sm:p-10 relative">
+            
+            <!-- Badge đầu thiệp -->
+            <div class="flex justify-between items-center mb-4">
+                <span class="px-3.5 py-1 rounded-full bg-pink-100 text-pink-600 font-bold text-xs sm:text-sm">
+                    🦛 Kawaii Hippo Wishes
+                </span>
+                <span class="px-3.5 py-1 rounded-full bg-purple-100 text-purple-600 font-bold text-xs sm:text-sm">
+                    🎂 Level 30 Unlocked!
+                </span>
+            </div>
+
+            <!-- Tiêu đề chính -->
+            <div class="text-center mb-6">
+                <h2 class="font-mali text-3xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 py-1">
+                    Chúc Mừng Sinh Nhật
+                </h2>
+                <h3 class="text-2xl sm:text-3xl font-bold text-purple-800 mt-1">
+                    Chị Tú Anh Xinh Đẹp 💖
+                </h3>
+            </div>
+
+            <!-- Khu vực Bánh Kem 30 Tuổi có nến tương tác -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 my-6 bg-gradient-to-r from-pink-50 via-purple-50 to-amber-50 rounded-2xl p-4 border-2 border-pink-100">
+                <!-- SVG Bánh kem 30 tuổi -->
+                <div class="w-40 h-36 flex-shrink-0">
+                    <svg viewBox="0 0 200 180" class="w-full h-full drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="100" cy="162" rx="82" ry="12" fill="#e9d5ff"/>
+                        <!-- Tầng bánh dưới -->
+                        <rect x="32" y="112" width="136" height="46" rx="14" fill="#ffc2d1" stroke="#ff7597" stroke-width="2.5"/>
+                        <path d="M 32 122 Q 45 135 58 122 Q 71 135 84 122 Q 97 135 110 122 Q 123 135 136 122 Q 149 135 168 122 L 168 112 L 32 112 Z" fill="#fffdf9"/>
+                        <!-- Tầng bánh trên -->
+                        <rect x="50" y="72" width="100" height="40" rx="12" fill="#e9d5ff" stroke="#c084fc" stroke-width="2.5"/>
+                        <path d="M 50 82 Q 62 93 75 82 Q 87 93 100 82 Q 112 93 125 82 Q 137 93 150 82 L 150 72 L 50 72 Z" fill="#fffdf9"/>
+
+                        <!-- Nến số 3 -->
+                        <rect x="76" y="40" width="10" height="32" rx="4" fill="#ff8fab" stroke="#e11d48" stroke-width="1.5"/>
+                        <text x="81" y="36" font-family="Mali, cursive" font-weight="700" font-size="16" fill="#e11d48" text-anchor="middle">3</text>
+                        <path id="flame-1" class="candle-flame" d="M 81 8 C 86 15 86 22 81 24 C 76 22 76 15 81 8 Z" fill="#fbbf24"/>
+
+                        <!-- Nến số 0 -->
+                        <rect x="114" y="40" width="10" height="32" rx="4" fill="#c084fc" stroke="#7e22ce" stroke-width="1.5"/>
+                        <text x="119" y="36" font-family="Mali, cursive" font-weight="700" font-size="16" fill="#7e22ce" text-anchor="middle">0</text>
+                        <path id="flame-2" class="candle-flame" d="M 119 8 C 124 15 124 22 119 24 C 114 22 114 15 119 8 Z" fill="#fbbf24"/>
+
+                        <!-- Dâu tây trang trí -->
+                        <circle cx="65" cy="110" r="5" fill="#fb7185"/>
+                        <circle cx="100" cy="110" r="5" fill="#fb7185"/>
+                        <circle cx="135" cy="110" r="5" fill="#fb7185"/>
+                    </svg>
+                </div>
+
+                <div class="text-center sm:text-left">
+                    <p class="text-sm sm:text-base font-bold text-pink-600 mb-1">
+                        Ước một điều ước tuổi 30 thật đẹp nhé chị iu! ✨
+                    </p>
+                    <p id="candle-hint" class="text-xs text-purple-600 mb-3">
+                        Nến đang cháy lung linh nè, bấm nút bên dưới để thổi nến nha!
+                    </p>
+                    <div class="flex flex-wrap justify-center sm:justify-start gap-2">
+                        <button id="blow-candle-btn" onclick="blowCandles()" class="px-4 py-2 rounded-full bg-gradient-to-r from-amber-400 to-pink-400 hover:from-amber-500 hover:to-pink-500 text-white font-bold text-xs shadow transition transform active:scale-95 cursor-pointer">
+                            🌬️ Thổi nến ước nguyện
+                        </button>
+                        <button onclick="fireCelebration()" class="px-4 py-2 rounded-full bg-purple-100 hover:bg-purple-200 text-purple-700 font-bold text-xs transition transform active:scale-95 cursor-pointer">
+                            🎉 Bắn pháo hoa & tim
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== KHUNG BỨC THƯ + BÉ HÀ MÃ CHIBI MINI LÓ ĐẦU ==================== -->
+            <div class="relative mt-14 mb-6">
+                
+                <!-- BÉ HÀ MÃ CHIBI MINI NGÓ ĐẦU LÊN TỪ MÉP KHUNG THƯ (PEEKING HIPPO) -->
+                <div class="peeking-hippo absolute -top-12 right-4 sm:right-8 w-24 h-16 z-20 pointer-events-none select-none">
+                    <svg viewBox="0 0 140 90" class="w-full h-full drop-shadow-sm overflow-visible" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Tai nhỏ xíu -->
+                        <g transform="rotate(-22 36 26)">
+                            <ellipse cx="36" cy="26" rx="9" ry="12" fill="#dfd0ff" stroke="#8b5cf6" stroke-width="2.5"/>
+                            <ellipse cx="36" cy="27" rx="5" ry="7" fill="#ffb3c6"/>
+                        </g>
+                        <g transform="rotate(22 104 26)">
+                            <ellipse cx="104" cy="26" rx="9" ry="12" fill="#dfd0ff" stroke="#8b5cf6" stroke-width="2.5"/>
+                            <ellipse cx="104" cy="27" rx="5" ry="7" fill="#ffb3c6"/>
+                        </g>
+
+                        <!-- Đầu bé hà mã ló lên -->
+                        <path d="M 24 76 C 22 40 42 20 70 20 C 98 20 118 40 116 76 Z" fill="#e9d5ff" stroke="#8b5cf6" stroke-width="2.5"/>
+
+                        <!-- Mắt to tròn long lanh -->
+                        <g class="hippo-eye">
+                            <circle cx="48" cy="44" r="7.5" fill="#2e1065"/>
+                            <circle cx="45.5" cy="41.5" r="3" fill="#ffffff"/>
+                            <circle cx="50.5" cy="46.5" r="1.4" fill="#ffffff"/>
+                        </g>
+                        <g class="hippo-eye">
+                            <circle cx="92" cy="44" r="7.5" fill="#2e1065"/>
+                            <circle cx="89.5" cy="41.5" r="3" fill="#ffffff"/>
+                            <circle cx="94.5" cy="46.5" r="1.4" fill="#ffffff"/>
+                        </g>
+
+                        <!-- Má hồng đào -->
+                        <ellipse cx="33" cy="54" rx="9" ry="5.5" fill="#ffb3c6"/>
+                        <ellipse cx="107" cy="54" rx="9" ry="5.5" fill="#ffb3c6"/>
+
+                        <!-- Mõm tròn hồng phấn -->
+                        <ellipse cx="70" cy="64" rx="36" ry="20" fill="#ffd6e4" stroke="#8b5cf6" stroke-width="2.5"/>
+                        <!-- Lỗ mũi trái tim mini -->
+                        <circle cx="57" cy="59" r="2.8" fill="#9333ea"/>
+                        <circle cx="83" cy="59" r="2.8" fill="#9333ea"/>
+                        <!-- Miệng mèo cười xinh -->
+                        <path d="M 60 68 Q 65 74 70 69 Q 75 74 80 68" fill="none" stroke="#7e22ce" stroke-width="2.2" stroke-linecap="round"/>
+
+                        <!-- Hai bàn tay nhỏ xíu bám lên mép khung thư -->
+                        <ellipse cx="26" cy="77" rx="12" ry="8" fill="#dfd0ff" stroke="#8b5cf6" stroke-width="2.5"/>
+                        <ellipse cx="114" cy="77" rx="12" ry="8" fill="#dfd0ff" stroke="#8b5cf6" stroke-width="2.5"/>
+                    </svg>
+                </div>
+
+                <!-- Khung chứa nội dung thư (Giữ nguyên vẹn 100% từng ký tự) -->
+                <div class="relative z-10 bg-white/95 rounded-2xl p-5 sm:p-8 border-2 border-dashed border-pink-200 shadow-inner">
+                    <div id="letter-content" class="whitespace-pre-line text-base sm:text-lg leading-relaxed text-gray-700 font-medium">Cj iu của e đã 30 tuổi ròi cơ á hã già thế ☺️ cj iu dạo này lớn hẳn ko mè nheo bắt nạt các e nhiều nữa chắc vì có a ấy ròi các e cũng đc nhờ hơn . Chúc chị iu tuổi mới thành công xinh xắn cầu gì có đó nhe . Năm sau sẽ nhiều điều thay đổi và vất vả mong ebe cj của e chân cứng đá mềm nhó. Cj iu giỏi mò chăm các e , e nào cũng khéo (trừ Qa ra chắc lúc đấy bé quá chưa có kinh nghiệm )e tin với kinh nghiệm bây giờ ebe cj sẽ chăm sóc ebe con tốt thui . Ebe cj đừng lo lắng quá có gì thì tâm sự cùng e nhé . E sẽ mua quà sinh nhật cho khi nào về thì khui nhó 
+yêu ebe 
+Chinchu</div>
+                </div>
+            </div>
+
+            <!-- Footer thiệp -->
+            <div class="mt-6 pt-4 border-t border-pink-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">🦛💖🎂</span>
+                    <span class="text-xs sm:text-sm font-bold text-purple-600">
+                        Always beside you, chị iu của tụi em!
+                    </span>
+                </div>
+                <button onclick="resetToEnvelope()" class="text-xs text-pink-400 hover:text-pink-600 font-semibold underline cursor-pointer">
+                    Xem lại bé Hà Mã mở đầu
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hộp thông báo Toast -->
+    <div id="toast-box" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 transform translate-y-4">
+        <div class="bg-purple-700/95 text-white px-5 py-2.5 rounded-full shadow-lg text-sm font-semibold flex items-center gap-2">
+            <span id="toast-icon">✨</span>
+            <span id="toast-message">Điều ước đã được gửi lên bầu trời!</span>
+        </div>
+    </div>
+
+    <script>
+        let scWidget = null;
+        let scReady = false;
+        let scActuallyPlaying = false;
+        let activeAudioMode = 'none'; // 'soundcloud' | 'piano' | 'none'
+        let isPlaying = false;
+        let candlesBlown = false;
+        let particleInterval = null;
+        let scDrawerVisible = false;
+
+        // ==================== HỆ THỐNG WEB AUDIO PIANO FALLBACK THÔNG MINH ====================
+        class HappyBirthdayPianoFallback {
+            constructor() {
+                this.ctx = null;
+                this.isPlaying = false;
+                this.loopTimer = null;
+                this.scheduledNodes = [];
+                // Giai điệu Happy Birthday to You (F Major ấm áp, du dương)
+                // [tần số Hz, độ dài tính theo phách]
+                this.tempo = 112;
+                this.notes = [
+                    // "Happy birthday to you"
+                    { f: 261.63, d: 0.75 }, { f: 261.63, d: 0.25 }, { f: 293.66, d: 1.0 }, { f: 261.63, d: 1.0 }, { f: 349.23, d: 1.0 }, { f: 329.63, d: 2.0 },
+                    // "Happy birthday to you"
+                    { f: 261.63, d: 0.75 }, { f: 261.63, d: 0.25 }, { f: 293.66, d: 1.0 }, { f: 261.63, d: 1.0 }, { f: 392.00, d: 1.0 }, { f: 349.23, d: 2.0 },
+                    // "Happy birthday dear Tú Anh"
+                    { f: 261.63, d: 0.75 }, { f: 261.63, d: 0.25 }, { f: 523.25, d: 1.0 }, { f: 440.00, d: 1.0 }, { f: 349.23, d: 1.0 }, { f: 329.63, d: 1.0 }, { f: 293.66, d: 2.0 },
+                    // "Happy birthday to you"
+                    { f: 466.16, d: 0.75 }, { f: 466.16, d: 0.25 }, { f: 440.00, d: 1.0 }, { f: 349.23, d: 1.0 }, { f: 392.00, d: 1.0 }, { f: 349.23, d: 2.5 }
+                ];
+            }
+
+            unlockContext() {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (!this.ctx && AudioCtx) {
+                    this.ctx = new AudioCtx();
+                }
+                if (this.ctx && this.ctx.state === 'suspended') {
+                    this.ctx.resume();
+                }
+            }
+
+            playPianoNote(freq, startTime, durationSec) {
+                if (!this.ctx) return;
+                const now = startTime;
+
+                // Tạo âm sắc piano ấm áp từ sóng triangle + sine hài âm
+                const oscMain = this.ctx.createOscillator();
+                const oscHarmonic = this.ctx.createOscillator();
+                const gainNode = this.ctx.createGain();
+                const filter = this.ctx.createBiquadFilter();
+
+                oscMain.type = 'triangle';
+                oscMain.frequency.setValueAtTime(freq, now);
+
+                oscHarmonic.type = 'sine';
+                oscHarmonic.frequency.setValueAtTime(freq * 2, now);
+
+                const harmonicGain = this.ctx.createGain();
+                harmonicGain.gain.setValueAtTime(0.18, now);
+
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(1800, now);
+                filter.frequency.exponentialRampToValueAtTime(600, now + durationSec);
+
+                // Envelope ADSR mềm mại kiểu phím đàn piano
+                gainNode.gain.setValueAtTime(0.0001, now);
+                gainNode.gain.linearRampToValueAtTime(0.24, now + 0.025);
+                gainNode.gain.exponentialRampToValueAtTime(0.08, now + durationSec * 0.45);
+                gainNode.gain.exponentialRampToValueAtTime(0.0001, now + durationSec + 0.35);
+
+                oscMain.connect(filter);
+                oscHarmonic.connect(harmonicGain);
+                harmonicGain.connect(filter);
+                filter.connect(gainNode);
+                gainNode.connect(this.ctx.destination);
+
+                oscMain.start(now);
+                oscHarmonic.start(now);
+                oscMain.stop(now + durationSec + 0.4);
+                oscHarmonic.stop(now + durationSec + 0.4);
+
+                this.scheduledNodes.push(oscMain, oscHarmonic, gainNode);
+            }
+
+            start() {
+                this.unlockContext();
+                if (!this.ctx || this.isPlaying) return;
+                this.isPlaying = true;
+                this.scheduleMelodyLoop();
+            }
+
+            scheduleMelodyLoop() {
+                if (!this.isPlaying || !this.ctx) return;
+                const beatSec = 60 / this.tempo;
+                let cursor = this.ctx.currentTime + 0.05;
+
+                this.notes.forEach((n) => {
+                    const dur = n.d * beatSec;
+                    this.playPianoNote(n.f, cursor, dur);
+                    // Thêm nốt trầm nhẹ ở đầu mỗi ô nhịp cho du dương
+                    if (n.d >= 1.0 && (n.f === 349.23 || n.f === 392.00 || n.f === 523.25)) {
+                        this.playPianoNote(n.f / 2, cursor, dur * 1.3);
+                    }
+                    cursor += dur;
+                });
+
+                const totalDurationMs = (cursor - this.ctx.currentTime + 0.8) * 1000;
+                this.loopTimer = setTimeout(() => {
+                    if (this.isPlaying) {
+                        this.scheduleMelodyLoop();
+                    }
+                }, totalDurationMs);
+            }
+
+            stop() {
+                this.isPlaying = false;
+                if (this.loopTimer) {
+                    clearTimeout(this.loopTimer);
+                    this.loopTimer = null;
+                }
+                this.scheduledNodes.forEach((node) => {
+                    try {
+                        if (typeof node.stop === 'function') node.stop();
+                        node.disconnect();
+                    } catch (e) {}
+                });
+                this.scheduledNodes = [];
+            }
+        }
+
+        const pianoFallback = new HappyBirthdayPianoFallback();
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const iframeElement = document.getElementById('sc-widget');
+            if (window.SC && iframeElement) {
+                scWidget = SC.Widget(iframeElement);
+
+                scWidget.bind(SC.Widget.Events.READY, () => {
+                    scReady = true;
+                    scWidget.setVolume(100);
+                });
+
+                scWidget.bind(SC.Widget.Events.PLAY, () => {
+                    scActuallyPlaying = true;
+                    // Nếu Web Audio Piano đang chạy fallback mà SoundCloud bắt đầu phát được thì chuyển mượt sang SoundCloud
+                    if (activeAudioMode === 'piano') {
+                        pianoFallback.stop();
+                    }
+                    activeAudioMode = 'soundcloud';
+                    isPlaying = true;
+                    updateMusicUI(true, 'soundcloud');
+                });
+
+                scWidget.bind(SC.Widget.Events.PAUSE, () => {
+                    scActuallyPlaying = false;
+                    if (activeAudioMode === 'soundcloud') {
+                        isPlaying = false;
+                        updateMusicUI(false, 'soundcloud');
+                    }
+                });
+
+                scWidget.bind(SC.Widget.Events.FINISH, () => {
+                    scWidget.seekTo(0);
+                    scWidget.play();
+                });
+            }
+
+            startBackgroundParticles();
+        });
+
+        function updateMusicUI(playing, mode = activeAudioMode) {
+            const icon = document.getElementById('music-btn-icon');
+            const text = document.getElementById('music-btn-text');
+            const status = document.getElementById('music-status');
+            const title = document.getElementById('music-source-title');
+            const disc = document.getElementById('music-disc');
+
+            if (mode === 'piano') {
+                title.textContent = 'Happy Birthday Piano Melody 🎹';
+            } else {
+                title.textContent = 'Happy Birthday Piano (SoundCloud) 🎹';
+            }
+
+            if (playing) {
+                icon.textContent = '⏸️';
+                text.textContent = 'Tạm dừng nhạc';
+                status.textContent = 'Đang phát giai điệu chúc mừng...';
+                disc.style.animationPlayState = 'running';
+            } else {
+                icon.textContent = '▶️';
+                text.textContent = 'Phát nhạc';
+                status.textContent = 'Nhạc đang tạm dừng';
+                disc.style.animationPlayState = 'paused';
+            }
+        }
+
+        function openBirthdayCard() {
+            const introScreen = document.getElementById('intro-screen');
+            const mainCard = document.getElementById('main-card-screen');
+
+            // 1. Mở khóa AudioContext ngay trong user gesture click
+            pianoFallback.unlockContext();
+
+            // 2. Gọi đồng bộ scWidget.play() và setVolume(100) ngay trong sự kiện click
+            if (scWidget) {
+                try {
+                    scWidget.setVolume(100);
+                    scWidget.play();
+                } catch (e) {
+                    console.warn('SoundCloud play exception:', e);
+                }
+            }
+
+            // Cập nhật trạng thái UI đang phát ngay lập tức
+            isPlaying = true;
+            updateMusicUI(true, 'soundcloud');
+
+            // 3. Kiểm tra sau 600ms: nếu SoundCloud chưa phát được tiếng trên mobile/Safari, tự động kích hoạt Piano Fallback ngay
+            setTimeout(() => {
+                if (scWidget && scReady) {
+                    scWidget.isPaused((paused) => {
+                        if (paused && !scActuallyPlaying && isPlaying) {
+                            activeAudioMode = 'piano';
+                            pianoFallback.start();
+                            updateMusicUI(true, 'piano');
+                        }
+                    });
+                } else if (!scActuallyPlaying && isPlaying) {
+                    activeAudioMode = 'piano';
+                    pianoFallback.start();
+                    updateMusicUI(true, 'piano');
+                }
+            }, 600);
+
+            fireCelebration();
+
+            introScreen.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                introScreen.classList.add('hidden');
+                mainCard.classList.remove('hidden');
+                void mainCard.offsetWidth;
+                mainCard.classList.remove('opacity-0', 'translate-y-6');
+            }, 450);
+        }
+
+        function resetToEnvelope() {
+            const introScreen = document.getElementById('intro-screen');
+            const mainCard = document.getElementById('main-card-screen');
+
+            mainCard.classList.add('opacity-0', 'translate-y-6');
+            setTimeout(() => {
+                mainCard.classList.add('hidden');
+                introScreen.classList.remove('hidden');
+                void introScreen.offsetWidth;
+                introScreen.classList.remove('opacity-0', 'scale-95');
+            }, 400);
+        }
+
+        function toggleMusic() {
+            if (isPlaying) {
+                // Tạm dừng đồng bộ cả SoundCloud lẫn Piano Fallback
+                isPlaying = false;
+                if (scWidget) {
+                    try { scWidget.pause(); } catch (e) {}
+                }
+                pianoFallback.stop();
+                updateMusicUI(false);
+            } else {
+                // Tiếp tục phát nhạc
+                isPlaying = true;
+                pianoFallback.unlockContext();
+                if (activeAudioMode === 'piano') {
+                    pianoFallback.start();
+                    updateMusicUI(true, 'piano');
+                } else if (scWidget) {
+                    try {
+                        scWidget.setVolume(100);
+                        scWidget.play();
+                    } catch (e) {}
+                    updateMusicUI(true, 'soundcloud');
+                    setTimeout(() => {
+                        if (scWidget && scReady) {
+                            scWidget.isPaused((paused) => {
+                                if (paused && !scActuallyPlaying && isPlaying) {
+                                    activeAudioMode = 'piano';
+                                    pianoFallback.start();
+                                    updateMusicUI(true, 'piano');
+                                }
+                            });
+                        }
+                    }, 600);
+                }
+            }
+        }
+
+        function toggleSoundCloudDrawer() {
+            const preloadContainer = document.getElementById('sc-preload-container');
+            const drawerSlot = document.getElementById('sc-drawer-slot');
+
+            scDrawerVisible = !scDrawerVisible;
+            if (scDrawerVisible) {
+                // Di chuyển iframe đã preload vào khung hiển thị mà không reload lại nhạc
+                drawerSlot.appendChild(preloadContainer);
+                preloadContainer.classList.remove('fixed', 'bottom-2', 'right-2', 'z-0', 'pointer-events-none');
+                preloadContainer.classList.add('w-full', 'relative');
+                preloadContainer.style.width = '100%';
+                preloadContainer.style.height = '166px';
+                preloadContainer.style.opacity = '1';
+                drawerSlot.style.maxHeight = '166px';
+                drawerSlot.style.marginBottom = '1rem';
+            } else {
+                // Đưa lại về chế độ preload ẩn nhưng vẫn giữ phát nhạc liên tục
+                document.body.appendChild(preloadContainer);
+                preloadContainer.classList.add('fixed', 'bottom-2', 'right-2', 'z-0', 'pointer-events-none');
+                preloadContainer.classList.remove('w-full', 'relative');
+                preloadContainer.style.width = '300px';
+                preloadContainer.style.height = '166px';
+                preloadContainer.style.opacity = '0.01';
+                drawerSlot.style.maxHeight = '0px';
+                drawerSlot.style.marginBottom = '0px';
+            }
+        }
+
+        function fireCelebration() {
+            if (typeof confetti !== 'function') return;
+
+            const colors = ['#ff8fab', '#ffb3c6', '#c084fc', '#fde047', '#f472b6'];
+
+            confetti({
+                particleCount: 80,
+                spread: 75,
+                origin: { y: 0.6 },
+                colors: colors
+            });
+
+            setTimeout(() => {
+                confetti({
+                    particleCount: 50,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: colors
+                });
+                confetti({
+                    particleCount: 50,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: colors
+                });
+            }, 250);
+        }
+
+        function blowCandles() {
+            const f1 = document.getElementById('flame-1');
+            const f2 = document.getElementById('flame-2');
+            const btn = document.getElementById('blow-candle-btn');
+            const hint = document.getElementById('candle-hint');
+
+            if (!candlesBlown) {
+                f1.classList.add('blown-out');
+                f2.classList.add('blown-out');
+                candlesBlown = true;
+                btn.innerHTML = '🔥 Thắp lại nến';
+                hint.textContent = 'Phùuu~ Điều ước tuổi 30 của chị Tú Anh chắc chắn sẽ thành hiện thực! 💖';
+                fireCelebration();
+                showToast('🎂', 'Chúc mừng sinh nhật tuổi 30 chị Tú Anh!');
+            } else {
+                f1.classList.remove('blown-out');
+                f2.classList.remove('blown-out');
+                candlesBlown = false;
+                btn.innerHTML = '🌬️ Thổi nến ước nguyện';
+                hint.textContent = 'Nến lại cháy lung linh rồi nè, ước tiếp nha chị iu!';
+                showToast('✨', 'Đã thắp lại nến lung linh!');
+            }
+        }
+
+        function showToast(icon, msg) {
+            const toast = document.getElementById('toast-box');
+            document.getElementById('toast-icon').textContent = icon;
+            document.getElementById('toast-message').textContent = msg;
+
+            toast.classList.remove('opacity-0', 'translate-y-4');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4');
+            }, 3000);
+        }
+
+        function startBackgroundParticles() {
+            const container = document.getElementById('particles-container');
+            const icons = ['💖', '🦛', '✨', '🌸', '💜', '🧁', '🎈'];
+
+            particleInterval = setInterval(() => {
+                if (container.childElementCount > 18) return;
+
+                const el = document.createElement('div');
+                el.className = 'floating-particle select-none';
+                el.textContent = icons[Math.floor(Math.random() * icons.length)];
+
+                const leftPos = Math.random() * 95;
+                const duration = 8 + Math.random() * 7;
+                const size = 16 + Math.random() * 14;
+
+                el.style.left = `${leftPos}vw`;
+                el.style.animationDuration = `${duration}s`;
+                el.style.fontSize = `${size}px`;
+
+                container.appendChild(el);
+
+                setTimeout(() => {
+                    if (el.parentNode) {
+                        el.parentNode.removeChild(el);
+                    }
+                }, duration * 1000);
+            }, 900);
+        }
+    </script>
+</body>
+</html>
